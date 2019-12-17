@@ -1,3 +1,3 @@
 # GAM-studying-group
 
-This is the branch that Oscar used at his end.
+This is the branch that Oscar uses at his end.
