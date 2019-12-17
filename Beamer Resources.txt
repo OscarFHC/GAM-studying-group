@@ -1,0 +1,4 @@
+useful rmarkdown beamer presentation resources
+https://bookdown.org/yihui/rmarkdown/html-document.html#html-document
+https://garrettgman.github.io/rmarkdown/beamer_presentation_format.html#themes
+http://svmiller.com/blog/2016/02/svm-r-markdown-manuscript/
