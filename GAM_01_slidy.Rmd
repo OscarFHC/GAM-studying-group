@@ -3,7 +3,7 @@ title: Generalized Additive Model (GAM)
 subtitle: study group
 author: "Hsiao-Hang & Oscar"
 institute: "Institute of Oceanography, National Taiwan University"
-date: "12/17/2019"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 
 #titlegraphic: /Dropbox/teaching/clemson-academic.png
 fontsize: 14 pt
@@ -54,7 +54,7 @@ $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
 - Determine a number of **knots (k)**
 
-- Fit $y$ with $k$ cubic functions and constant and one 1<sup>st</sup> term
+- Fit $y$ with $k$ cubic functions plus one constant and one 1<sup>st</sup> term
 
 - The cubic function is written in **eqn 3.4**
 
@@ -100,8 +100,6 @@ spl.X <- function(x,xk) # set up model matrix for cubic penalized regression spl
 }
 ```
 
-- The rank seems to be always knot +2...
-
 
 #
 
@@ -124,9 +122,7 @@ lines(xp,Xp%*%coef(mod.1)) # plot fitted spline
 
 - **Penalized regression splines**
 
-  Minimize the following...
-
-  $||y - X\beta|| + \boldsymbol{\lambda \int_{0}^{1}[f''(x)]^2dx}$ \
+  Minimize the following...$||y - X\beta|| + \boldsymbol{\lambda \int_{0}^{1}[f''(x)]^2dx}$ \
   
   High $\lambda$ penalizes high wiggliness ($\int_{0}^{1}[f''(x)]^2dx$)
   
