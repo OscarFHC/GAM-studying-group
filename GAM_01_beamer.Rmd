@@ -8,13 +8,16 @@ date: "12/17/2019"
 #titlegraphic: /Dropbox/teaching/clemson-academic.png
 fontsize: 14 pt
 output:
- beamer_presentation:
-    theme: "AnnArbor"
-    #template: svm-latex-beamer.tex
-    keep_tex: true
-    latex_engine: xelatex # pdflatex also works here
-    dev: cairo_pdf # I typically comment this out  if latex_engine: pdflatex
-    slide_level: 2
+ ioslides_presentation:
+    incremental: FALSE
+    widescreen: true
+    smaller: FALSE
+    # theme: AnnArbor
+    # #template: svm-latex-beamer.tex
+    # keep_tex: true
+    # latex_engine: xelatex # pdflatex also works here
+    # dev: cairo_pdf # I typically comment this out  if latex_engine: pdflatex
+    # slide_level: 2
 #make149: true
 #mainfont: "Open Sans" # Try out some font options if xelatex
 #titlefont: "Titillium Web" # Try out some font options if xelatex

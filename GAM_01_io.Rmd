@@ -1,0 +1,47 @@
+---
+title: Generalized Additive Model
+subtitle: study group
+author: "Hsiao-Hang & Oscar"
+institute: "Institute of Oceanography, National Taiwan University"
+date: "12/17/2019"
+
+#titlegraphic: /Dropbox/teaching/clemson-academic.png
+fontsize: 14 pt
+output:
+ ioslides_presentation:
+    incremental: FALSE
+    widescreen: TRUE
+    slide_level:2
+    
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## General Additive Model
+
+
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
