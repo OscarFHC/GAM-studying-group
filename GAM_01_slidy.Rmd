@@ -1,25 +1,31 @@
 ---
-title: Generalized Additive Model (GAM)
-subtitle: study group
+title: "Generalized Additive Model (GAM)"
 author: "Hsiao-Hang & Oscar"
-institute: "Institute of Oceanography, National Taiwan University"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
-
-#titlegraphic: /Dropbox/teaching/clemson-academic.png
-fontsize: 14 pt
 output:
- slidy_presentation:
-    incremental: FALSE
-    widescreen: TRUE
+  slidy_presentation:
     highlight: pygments
-    
+    incremental: no
+    widescreen: yes
+  beamer_presentation:
+    highlight: pygments
+    incremental: no
+  ioslides_presentation:
+    highlight: pygments
+    incremental: no
+institute: Institute of Oceanography, National Taiwan University
+subtitle: study group
+fontsize: 14 pt
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+
 # General form
+
+- **Generalized additive model** is a generalized linear model with a linear predictor, involving a sum of smooth functions of covariates.
 
 $g(u_i) = X^*_i \theta + f_1(x_{1i}) + f_2(x_{2i}) + f_3(x_{3i}, x_{4i}) + ...$ (eqn. 3.1)
 
@@ -35,7 +41,8 @@ $f$ : **smooth function** \
 $x_i$ : covariate \
 $\epsilon_i$ : i.i.d. $N(0, \sigma^2)$ variable (error) \
 
-- The smooth function can then be expressed as some \
+- Represent the smooth function *f* in a way that (eqn. 3.2) becomes a linear model. 
+- The smooth function *f* can then be expressed as some \
   *basis functions* $(b)$ with parameter $\beta$
   
 $f(x_i) = \sum_{j=1}^{q} b_j(x)\beta_j$
@@ -45,18 +52,35 @@ $f(x_i) = \sum_{j=1}^{q} b_j(x)\beta_j$
 
 $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
-- Fig. 3.1 and Fig. 3.2
+![](Ch3_fig/Fig_3_1.png){width=350px}
+
+![](Ch3_fig/Fig_3_2.png){width=350px}
 
 - Polynomial basis can be problematic...**spline bases** are more common
 
 
 # Cubic spline basis
 
-- Determine a number of **knots (k)**
+- A univariate function represented using a cubic spline. 
+
+- A cubic spline is a curve, made up of sections of cubic polynomial, joined together so that they are continuous in value as well as first and second derivatives 
+
+![](Ch3_fig/Fig_3_3.png){width=400px}
+
+- Determine the location of knots: evenly spaced or at quantile of distribution of x
+
+- Determine a number of **knots (k)** 
+
+ $\{x_i^*:i=1,...,q-2\}$  (why?) 
+ 
+
+# 
 
 - Fit $y$ with $k$ cubic functions plus one constant and one 1<sup>st</sup> term
 
-- The cubic function is written in **eqn 3.4**
+$b_1(x)=1, b_2(x)=x,...,b_{i+2}(x,x_i^*)$
+
+- The cubic function is written in **eqn 3.4** 
 
 - cubic spline function in *R* (`z` is rank $q$)
 ```{r, echo=TRUE}
@@ -65,6 +89,15 @@ rk <- function(x, z) # R(x,z) for cubic spline on [0,1]
   ((z-0.5)^2-1/12) * ((x-0.5)^2-1/12)/4- ((abs(x-z)-0.5)^4-(abs(x-z)-0.5)^2/2+7/240)/24
 }
 ```
+
+
+# rank 5 cubic regression spline basis 
+
+![](Ch3_fig/Fig_3_4.png){width=500}
+
+
+![](Ch3_fig/Fig_3_5.png){width=500}
+
 
 
 #
