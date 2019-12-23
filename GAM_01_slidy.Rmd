@@ -52,9 +52,9 @@ $f(x_i) = \sum_{j=1}^{q} b_j(x)\beta_j$
 
 $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
-![](Ch3_fig/Fig_3_1.png){width=350px}
+![](Ch3_fig/Fig_3_1.png){width=600px}
 
-![](Ch3_fig/Fig_3_2.png){width=350px}
+![](Ch3_fig/Fig_3_2.png){width=600px}
 
 - Polynomial basis can be problematic...**spline bases** are more common
 
@@ -65,52 +65,46 @@ $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
 - A cubic spline is a curve, made up of sections of cubic polynomial, joined together so that they are continuous in value as well as first and second derivatives 
 
-![](Ch3_fig/Fig_3_3.png){width=400px}
+![](Ch3_fig/Fig_3_3.png){width=600px}
 
-- Determine the location of knots: evenly spaced or at quantile of distribution of x
-
-- Determine a number of **knots (k)** 
-
- $\{x_i^*:i=1,...,q-2\}$  (why?) 
- 
+- A cubic spline basis consist of *one constant* and *one 1<sup>st</sup> order (linear)* term and $k$ cubic polynomials
+  - **$k$ is the number of knots**
+  - knots are evenly spaced or at the quantile of distribution of x ($x_i^*; i = 1 \sim k$)
+  - $k+2$ is the rank of the cubic spline function
 
 # 
 
-- Fit $y$ with $k$ cubic functions plus one constant and one 1<sup>st</sup> term
+A cubic spline basis can be expressed as...
 
-$b_1(x)=1, b_2(x)=x,...,b_{i+2}(x,x_i^*)$
+$b_1(x)=1, b_2(x)=x,...,b_{i+2}(x,x_k^*)$
 
-- The cubic function is written in **eqn 3.4** 
+- $b_{i+2}(x,x_k^*)$ is a cubic polynomial written in **eqn 3.4** 
 
-- cubic spline function in *R* (`z` is rank $q$)
-```{r, echo=TRUE}
-rk <- function(x, z) # R(x,z) for cubic spline on [0,1] 
-  { 
+- Each cubic polynomial will peak at the knot
+  - e.g. The four cubic polynomials when $k = 4$ \
+```{r, fig.height = 4}
+rk <- function(x, z) { 
   ((z-0.5)^2-1/12) * ((x-0.5)^2-1/12)/4- ((abs(x-z)-0.5)^4-(abs(x-z)-0.5)^2/2+7/240)/24
 }
-```
 
-
-# rank 5 cubic regression spline basis 
-
-![](Ch3_fig/Fig_3_4.png){width=500}
-
-
-![](Ch3_fig/Fig_3_5.png){width=500}
-
-
-
-#
-
-When $k = 4$, there are 4 cubic functions.\
-```{r}
 lala <- seq(0.01, 1, 0.01)
 knot <- 1:4/5
 plot(rk(lala, knot) ~ lala)
 ```
 
+The peak of the cubic polynomial is *conceptually* the weight when fitting the $y$
 
-# Example of cubic spline basis
+# Example of cubic spline bases
+
+rank 5 cubic regression spline basis 
+
+![](Ch3_fig/Fig_3_4.png){width=600}
+
+
+![](Ch3_fig/Fig_3_5.png){width=600}
+
+
+# Working example
 
 Data
 ```{r, echo = TRUE}
