@@ -1,6 +1,10 @@
 ---
 title: "Generalized Additive Model (GAM)"
+<<<<<<< Updated upstream
 author: "Hsiao-Hang & Oscar & t"
+=======
+author: "ffffff Hsiao-Hang & Oscar"
+>>>>>>> Stashed changes
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   slidy_presentation:
