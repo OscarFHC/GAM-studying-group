@@ -131,7 +131,7 @@ spl.X <- function(x,xk) # set up model matrix for cubic penalized regression spl
 #
 
 Results...\
-```{r, echo}
+```{r}
 xk <- 1:4/5 # choose some knots
 X <- spl.X(x,xk) # generate model matrix 
 mod.1 <- lm(wear~X-1) # fit model
