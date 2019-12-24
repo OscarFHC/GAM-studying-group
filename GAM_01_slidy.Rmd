@@ -1,10 +1,6 @@
 ---
-title: "Generalized Additive Model (GAM)"
-<<<<<<< Updated upstream
-author: "Hsiao-Hang & Oscar & t"
-=======
-author: "ffffff Hsiao-Hang & Oscar"
->>>>>>> Stashed changes
+title: "lalala Generalized Additive Model (GAM)"
+author: "Hsiao-Hang & Oscar"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   slidy_presentation:
@@ -135,7 +131,7 @@ spl.X <- function(x,xk) # set up model matrix for cubic penalized regression spl
 #
 
 Results...\
-```{r, echo}
+```{r}
 xk <- 1:4/5 # choose some knots
 X <- spl.X(x,xk) # generate model matrix 
 mod.1 <- lm(wear~X-1) # fit model
