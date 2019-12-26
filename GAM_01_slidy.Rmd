@@ -1,5 +1,5 @@
 ---
-title: "Generalized Additive Model (GAM)"
+title: "Generalized Additive Model (GAM) generating conflicts"
 author: "Hsiao-Hang & Oscar"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
