@@ -1,6 +1,6 @@
 ---
 title: "Generalized Additive Model (GAM)"
-author: "Hsiao-Hang & Oscar"
+author: "asasasasas Hsiao-Hang & Oscar"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   slidy_presentation:
