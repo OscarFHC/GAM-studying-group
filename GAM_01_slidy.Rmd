@@ -1,5 +1,5 @@
 ---
-title: "dadada Generalized Additive Model (GAM)"
+title: "Generalized Additive Model (GAM)"
 author: "Hsiao-Hang & Oscar"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
@@ -52,9 +52,9 @@ $f(x_i) = \sum_{j=1}^{q} b_j(x)\beta_j$
 
 $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
-![](Ch3_fig/Fig_3_1.png){width=600px}
+![](Ch3_fig/Fig_3_1.png){width=400px}
 
-![](Ch3_fig/Fig_3_2.png){width=600px}
+![](Ch3_fig/Fig_3_2.png){width=400px}
 
 - Polynomial basis can be problematic...**spline bases** are more common
 
@@ -67,18 +67,22 @@ $f(x) = \beta_1 + x\beta_2 + x^2\beta_3 + x^3\beta_4 + x^4\beta_5$
 
 ![](Ch3_fig/Fig_3_3.png){width=600px}
 
-- A cubic spline basis consist of *one constant* and *one 1<sup>st</sup> order (linear)* term and $k$ cubic polynomials
-  - **$k$ is the number of knots**
-  - knots are evenly spaced or at the quantile of distribution of x ($x_i^*; i = 1 \sim k$)
-  - $k+2$ is the rank of the cubic spline function
-
 # 
-
 A cubic spline basis can be expressed as...
 
 $b_1(x)=1, b_2(x)=x,...,b_{i+2}(x,x_k^*)$
 
-- $b_{i+2}(x,x_k^*)$ is a cubic polynomial written in **eqn 3.4** 
+- Consist of *one constant*, *one 1<sup>st</sup> order (linear)* term, and $k$ cubic polynomials
+
+  - **$k$ is the number of knots**
+  - knots are evenly spaced or at the quantile of distribution of x ($x_i^*; i = 1 \sim k$)
+  - $k+2$ is the rank of the cubic spline function
+
+- $b_{i+2}(x,x_k^*)$ is a cubic polynomial written as:
+
+![](Ch3_fig/eqn_3_4.png){width=700px}
+
+#
 
 - Each cubic polynomial will peak at the knot
   - e.g. The four cubic polynomials when $k = 4$ \
@@ -98,10 +102,10 @@ The peak of the cubic polynomial is *conceptually* the weight when fitting the $
 
 rank 5 cubic regression spline basis 
 
-![](Ch3_fig/Fig_3_4.png){width=600}
+![](Ch3_fig/Fig_3_4.png){width=500}
 
 
-![](Ch3_fig/Fig_3_5.png){width=600}
+![](Ch3_fig/Fig_3_5.png){width=500}
 
 
 # Working example
@@ -154,6 +158,8 @@ lines(xp,Xp%*%coef(mod.1)) # plot fitted spline
   High $\lambda$ penalizes high wiggliness ($\int_{0}^{1}[f''(x)]^2dx$)
   
   Fig. 3.8
+
+![](Ch3_fig/Fig_3_8.png){width=500}  
   
 - Still need to determine a number of knots
 
@@ -167,12 +173,15 @@ lines(xp,Xp%*%coef(mod.1)) # plot fitted spline
   Use *influence matrix* to estimate the deviance when leaving one data point out
   Fig. 3.10
   
+![](Ch3_fig/Fig_3_10.png){width=700}  
 
 # Additive model (more than one $x$)
 
 $y_i = f_1(x_{1i}) + f_2(x_{2i}) + \epsilon_i$
 
 All calculations are conceptually the same as mentioned above.
+
+![](Ch3_fig/Fig_3_11.png){width=800} 
 
 
 # Generalized additive model
