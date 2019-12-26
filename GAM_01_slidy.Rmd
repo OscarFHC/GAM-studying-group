@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-# General form
+# General form yaya
 
 - **Generalized additive model** is a generalized linear model with a linear predictor, involving a sum of smooth functions of covariates.
 
