@@ -4,16 +4,9 @@ author: "Hsiao-Hang & Oscar"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   slidy_presentation:
-    highlight: pygments
+    highlight: espresso
     incremental: no
     widescreen: yes
-  beamer_presentation:
-    highlight: pygments
-    incremental: no
-  ioslides_presentation:
-    highlight: pygments
-    incremental: no
-institute: Institute of Oceanography, National Taiwan University
 subtitle: study group
 fontsize: 14 pt
 ---
@@ -25,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 # General form
 
-- **Generalized additive model** is a generalized linear model with a linear predictor, involving a sum of smooth functions of covariates.
+- **Generalized additive model** is a <mark> generalized </mark> linear model with a linear predictor, involving a sum of smooth functions of covariates.
 
 $g(u_i) = X^*_i \theta + f_1(x_{1i}) + f_2(x_{2i}) + f_3(x_{3i}, x_{4i}) + ...$ (eqn. 3.1)
 
